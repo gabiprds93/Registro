@@ -2,10 +2,10 @@ import React from 'react'
 
 const Input = ({label, type, field}) => {
   return(
-    <div>
-      <label>{label}</label>
+    <label style={{display: "flex", flexDirection: "column"}}>
+      {label}
       <input type={type} {...field} />
-    </div>
+    </label>
   )
 }
 

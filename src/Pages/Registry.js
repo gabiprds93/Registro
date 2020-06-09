@@ -8,7 +8,7 @@ const Registry = () => {
   return(
     <Formik>
       <Form
-        style={{ display: 'flex', flexWrap: 'wrap' }}
+        style={{ display: 'flex', flexWrap: 'wrap', flexDirection: "column" }}
       >
         {entrepreneurDataConfig.map((item, index) => {
           return (
