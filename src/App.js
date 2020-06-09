@@ -1,8 +1,8 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom'
 
-import Registry from './Components/Registry'
-import Login from './Components/Login'
+import Registry from './Pages/Registry'
+import Login from './Pages/Login'
 
 function App() {
   return (
