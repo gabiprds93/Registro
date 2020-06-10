@@ -4,7 +4,10 @@ const Input = ({label, type, field}) => {
   return(
     <label style={{display: "flex", flexDirection: "column"}}>
       {label}
-      <input type={type} {...field} />
+      {type === 'textarea' ? 
+        <textarea style={{resize: 'none'}} {...field}></textarea>
+        : <input type={type} {...field} />
+      }
     </label>
   )
 }
