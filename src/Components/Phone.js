@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Phone = ({label, name, onChange, form, ...props}) => {
+const Phone = ({label, form, field}) => {
   const handleChangeInput = (evento) => {
     const { name, value } = evento.target;
     let regex = new RegExp("^[0-9]{0,9}$");
@@ -13,7 +13,7 @@ const Phone = ({label, name, onChange, form, ...props}) => {
   return(
     <label style={{display: "flex", flexDirection: "column"}}>
       {label}
-      <input type='text' name={name} onChange={handleChangeInput} {...props} />
+      <input type='text' {...field} onChange={handleChangeInput}  />
     </label>
   )
 }

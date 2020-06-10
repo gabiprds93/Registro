@@ -6,12 +6,11 @@ import Phone from './Phone'
 const InputType = ({
   type,
   options = [],
-  field,
   ...props
 }) => {
   switch (type) {
     case 'phone':
-      return <Phone {...props} {...field} />
+      return <Phone {...props} />
     default:
       return <Input type={type} {...props} />
   }
