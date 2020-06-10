@@ -2,13 +2,14 @@ import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
+import './assets/styles.css'
 import store from './redux/store'
 import Registry from './Pages/Registry'
 // import Login from './Pages/Login'
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Provider store={store}>
       <HashRouter>
         <Switch>

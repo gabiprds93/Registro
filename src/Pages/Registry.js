@@ -30,13 +30,14 @@ const Registry = ({fetchUserRegistry}) => {
   
   return(
     <div>
-      <h1>Registro</h1>
-      <h2>Ingresa los datos solicitados para formar parte de nuestros distribuidores.</h2>
+      <div className="header">
+        <h2 className="title">Registro</h2>
+        <h3 className="subtitle">Ingresa los datos solicitados para formar parte de nuestros distribuidores.</h3>
+      </div>
+
       <Formik initialValues={initialValues} onSubmit={submitForm}>
-        <Form
-          style={{ display: 'flex', flexWrap: 'wrap', flexDirection: "column" }}
-        >
-          <h3>Datos del Emprendedor</h3>
+        <Form className="form">
+          <h3 className="section-text">Datos del Emprendedor</h3>
           {entrepreneurDataConfig.map((item, index) => {
             return (
               <Field 
@@ -48,7 +49,8 @@ const Registry = ({fetchUserRegistry}) => {
               />
             )
           })}
-          <h3>Datos de acceso</h3>
+
+          <h3 className="section-text">Datos de acceso</h3>
           {accessDataConfig.map((item, index) => {
             return (
               <Field 
@@ -60,13 +62,15 @@ const Registry = ({fetchUserRegistry}) => {
               />
             )
           })}
-          <label>
+
+          <span className="form-label">
             <Field
               type='checkbox'
               name='termns'
             />
             Autorizo y Acepto que la Municipalidad de La Molina me notifique los actos administrativos que pudiera emitir a consecuencia de la presente solicitud y/0 procedimiento administrativo al correo electrónico.
-          </label>
+          </span>
+          
           <div>
             <button>Cancelar</button>
             <button type="submit">Enviar</button>

@@ -11,9 +11,9 @@ const Phone = ({label, form, field}) => {
   }
 
   return(
-    <label style={{display: "flex", flexDirection: "column"}}>
+    <label className="form-label">
       {label}
-      <input type='text' {...field} onChange={handleChangeInput}  />
+      <input className="form-input" type='text' {...field} onChange={handleChangeInput}  />
     </label>
   )
 }

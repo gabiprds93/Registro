@@ -1,0 +1,57 @@
+body{
+  color: #828282;
+}
+
+.container {
+  margin: auto;
+  width: 70%;
+}
+
+.header{
+  text-align: center;
+}
+
+.subtitle{
+  font-weight: normal;
+}
+
+.section-text{
+  color: #1A984D;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.form-label{
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+span.form-label{
+  align-items: center;
+  flex-direction: row;
+  font-size: 12px;
+}
+
+.form-input{
+  background: #F6F6F6;
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  margin-top: 10px;
+}
+
+textarea.form-input{
+  height: 135px;
+  resize: none;
+}
+
+input[type="checkbox"]{
+  margin-right: 10px;
+}
