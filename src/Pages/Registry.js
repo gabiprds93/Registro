@@ -57,6 +57,10 @@ const Registry = () => {
             />
             Autorizo y Acepto que la Municipalidad de La Molina me notifique los actos administrativos que pudiera emitir a consecuencia de la presente solicitud y/0 procedimiento administrativo al correo electrónico.
           </label>
+          <div>
+            <button>Cancelar</button>
+            <button>Enviar</button>
+          </div>
         </Form>
       </Formik>
     </div>
