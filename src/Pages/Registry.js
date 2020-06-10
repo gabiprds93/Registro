@@ -1,10 +1,20 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik'
+import { connect } from 'react-redux'
 
 import FormikInput from '../Components/ForminkInput'
 import { entrepreneurDataConfig, accessDataConfig } from '../config/ConfigForm'
+import { fetchUserRegistry } from '../redux/actions/userActions'
 
-const Registry = () => {
+const Registry = ({fetchUserRegistry}) => {
+  const submitForm = values => {
+    fetchUserRegistry(values).then(data => {
+      if(!data.errors){
+        console.log('success')
+      }
+    })
+  }
+  
   const initialValues = {
     name: '',
     description: '',
@@ -22,7 +32,7 @@ const Registry = () => {
     <div>
       <h1>Registro</h1>
       <h2>Ingresa los datos solicitados para formar parte de nuestros distribuidores.</h2>
-      <Formik initialValues={initialValues}>
+      <Formik initialValues={initialValues} onSubmit={submitForm}>
         <Form
           style={{ display: 'flex', flexWrap: 'wrap', flexDirection: "column" }}
         >
@@ -59,7 +69,7 @@ const Registry = () => {
           </label>
           <div>
             <button>Cancelar</button>
-            <button>Enviar</button>
+            <button type="submit">Enviar</button>
           </div>
         </Form>
       </Formik>
@@ -67,4 +77,8 @@ const Registry = () => {
   )
 }
 
-export default Registry
+const mapStateToProps = state => state 
+
+const mapDispatchToProps = { fetchUserRegistry }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Registry)
