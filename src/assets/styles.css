@@ -59,6 +59,10 @@ input[type="checkbox"]{
   margin-right: 10px;
 }
 
+input[type="file"]{
+  display: none;
+}
+
 .button-group{
   display: flex;
   justify-content: center;
@@ -80,4 +84,27 @@ button{
 
 .background-green{
   background-color: #1A984D;
+}
+
+.file-upload{
+  align-items: center;
+  display: flex;
+  margin-top: 10px;
+}
+
+.file-upload label{
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  display: flex;
+  margin: 0;
+  width: 100%;
+}
+
+.file-upload button{
+  margin-right: 0;
+}
+
+.file-upload span{
+  margin-left: 28px;
 }
