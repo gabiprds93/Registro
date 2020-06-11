@@ -16,17 +16,32 @@ const Registry = ({fetchUserRegistry}) => {
   }
   
   const initialValues = {
-    idusuario: '',
-    dni: '99999999',
-    nombre: '',
-    descripcion: '',
-    nombree: '',
-    celular: '',
-    correo: 'email@correo.com',
-    url: '',
-    username: '',
-    clave: '',
-    mov_usu: 'N'
+    // idusuario: '',
+    // dni: '99999999',
+    // nombre: '',
+    // descripcion: '',
+    // nombree: '',
+    // celular: '',
+    // correo: 'email@correo.com',
+    // url: '',
+    // username: '',
+    // clave: '',
+    // mov_usu: 'N'
+    idusuario:'',
+    username:'gaby123',
+    clave:'clave',
+    // ---------------------------
+    dni:'dni',
+    nombre:'nombre',
+    paterno:'paterno',
+    materno:'materno',
+    celular:'celular',
+    correo:'correo',
+    descripcion:'descripcion',
+    nombree:'nombree',
+    url:'url',
+    // -----------------------------  
+    mov_usu:'N'
   }
   
   return(
@@ -37,6 +52,7 @@ const Registry = ({fetchUserRegistry}) => {
       </div>
 
       <Formik initialValues={initialValues} onSubmit={submitForm}>
+      {({resetForm}) => (
         <Form className="form">
           <h3 className="section-text">Datos del Emprendedor</h3>
           {entrepreneurDataConfig.map((item, index) => {
@@ -73,10 +89,11 @@ const Registry = ({fetchUserRegistry}) => {
           </span>
           
           <div>
-            <button>Cancelar</button>
+            <button type="button" onClick={() => resetForm(initialValues)}>Cancelar</button>
             <button type="submit">Enviar</button>
           </div>
         </Form>
+      )}
       </Formik>
     </div>
   )
