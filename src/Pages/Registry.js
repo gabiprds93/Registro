@@ -88,9 +88,9 @@ const Registry = ({fetchUserRegistry}) => {
             Autorizo y Acepto que la Municipalidad de La Molina me notifique los actos administrativos que pudiera emitir a consecuencia de la presente solicitud y/0 procedimiento administrativo al correo electrónico.
           </span>
           
-          <div>
-            <button type="button" onClick={() => resetForm(initialValues)}>Cancelar</button>
-            <button type="submit">Enviar</button>
+          <div className="button-group">
+            <button className="background-red" type="button" onClick={() => resetForm(initialValues)}>Cancelar</button>
+            <button className="background-green" type="submit">Enviar</button>
           </div>
         </Form>
       )}
