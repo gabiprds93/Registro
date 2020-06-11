@@ -16,16 +16,17 @@ const Registry = ({fetchUserRegistry}) => {
   }
   
   const initialValues = {
-    name: '',
-    description: '',
-    contactName: '',
-    cellphone: '',
-    urlFacebook: '',
-    user: '',
-    password: '',
-    confirmPassword: '',
-    addFiles: '',
-    termns: false,
+    idusuario: '',
+    dni: '99999999',
+    nombre: '',
+    descripcion: '',
+    nombree: '',
+    celular: '',
+    correo: 'email@correo.com',
+    url: '',
+    username: '',
+    clave: '',
+    mov_usu: 'N'
   }
   
   return(
