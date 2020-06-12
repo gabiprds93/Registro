@@ -108,3 +108,9 @@ button{
 .file-upload span{
   margin-left: 28px;
 }
+
+.message{
+  color: red;
+  margin-bottom: 30px;
+  text-align: center;
+}

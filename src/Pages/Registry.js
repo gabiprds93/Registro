@@ -88,7 +88,7 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
           </span>
 
           {registryResponse && registryResponse.COD_MENSAJE && (
-            <p>{registryResponse.COD_MENSAJE}</p>
+            <p className="message">{registryResponse.COD_MENSAJE}</p>
           )}
           
           <div className="button-group">
