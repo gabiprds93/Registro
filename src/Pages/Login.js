@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import FormikInput from '../Components/ForminkInput'
 import { loginDataConfig } from '../config/ConfigForm'
 import { fetchUserLogin } from '../redux/actions/userActions'
+import { validateLogin } from '../config/validation'
 
 const Login = ({ fetchUserLogin }) => {
   const submitForm = (values, actions) => {
@@ -37,6 +38,7 @@ const Login = ({ fetchUserLogin }) => {
         onSubmit={(values, actions) => {
           submitForm(values, actions)
         }}
+        validate={validateLogin}
       >
       {({ errors }) => (
         <Form className="form" id="formLogin">

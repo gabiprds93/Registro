@@ -29,3 +29,17 @@ export const validateRegistry = values => {
 
   return errors
 }
+
+export const validateLogin = values => {
+  const errors = {}
+
+  if (!values.username) {
+    errors.username = 'Requerido';
+  }
+
+  if (!values.clave) {
+    errors.clave = 'Requerido';
+  }
+
+  return errors
+}
