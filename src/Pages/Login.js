@@ -6,6 +6,7 @@ import FormikInput from '../Components/ForminkInput'
 import { loginDataConfig } from '../config/ConfigForm'
 import { fetchUserLogin } from '../redux/actions/userActions'
 import { validateLogin } from '../config/validation'
+import { initialValuesLogin } from '../config/initialValues'
 
 const Login = ({ fetchUserLogin }) => {
   const submitForm = (values, actions) => {
@@ -20,11 +21,6 @@ const Login = ({ fetchUserLogin }) => {
       }
     })
   }
-
-  const initialValues = {
-    username: '',
-    clave: ''
-  }
   
   return(
     <div>
@@ -34,7 +30,7 @@ const Login = ({ fetchUserLogin }) => {
       </div>
 
       <Formik 
-        initialValues={initialValues} 
+        initialValues={initialValuesLogin} 
         onSubmit={(values, actions) => {
           submitForm(values, actions)
         }}

@@ -7,6 +7,7 @@ import { entrepreneurDataConfig, accessDataConfig } from '../config/ConfigForm'
 import { fetchUserRegistry } from '../redux/actions/userActions'
 import { fetchFileUpload } from '../redux/actions/fileActions'
 import { validateRegistry } from '../config/validation'
+import { initialValuesRegistry } from '../config/initialValues'
 
 const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
   const submitForm = values => {
@@ -30,21 +31,6 @@ const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
       fetchUserRegistry(formData)
     }
   }
-
-  const initialValues = {
-    idusuario: '',
-    dni: '',
-    nombre: '',
-    descripcion: '',
-    nombree: '',
-    celular: '',
-    correo: '',
-    url: '',
-    username: '',
-    clave: '',
-    mov_usu: 'N',
-    wichButton: '',
-  }
   
   return(
     <div>
@@ -53,7 +39,7 @@ const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
         <h3 className="subtitle">Ingresa los datos solicitados para formar parte de nuestros distribuidores.</h3>
       </div>
 
-      <Formik initialValues={initialValues} onSubmit={submitForm} validate={validateRegistry}>
+      <Formik initialValues={initialValuesRegistry} onSubmit={submitForm} validate={validateRegistry}>
       {({resetForm, handleSubmit, setFieldValue}) => (
         <Form className="form" id="formElement">
           <h3 className="section-text">Datos del Emprendedor</h3>
@@ -91,7 +77,7 @@ const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
           </span>
           
           <div className="button-group">
-            <button className="background-red" type="button" onClick={() => resetForm(initialValues)}>Cancelar</button>
+            <button className="background-red" type="button" onClick={() => resetForm(initialValuesRegistry)}>Cancelar</button>
             <button className="background-green" type="button" onClick={() => {setFieldValue('wichButton', 'sendButton')
               handleSubmit()}}>Enviar</button>
           </div>
