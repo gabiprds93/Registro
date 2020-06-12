@@ -19,11 +19,12 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
       })
     }
     else{
-      fetchUserRegistry(values).then(data => {
-        if(!data.errors){
-          console.log('success')
-        }
-      })
+      let formElement = document.getElementById("formElement")
+      let formData = new FormData(formElement)
+
+      formData.delete('confirmPassword')
+      formData.delete('addFiles')
+      fetchUserRegistry(formData)
     }
   }
   
@@ -66,7 +67,7 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
 
       <Formik initialValues={initialValues} onSubmit={submitForm}>
       {({resetForm, handleSubmit, setFieldValue}) => (
-        <Form className="form">
+        <Form className="form" id="formElement">
           <h3 className="section-text">Datos del Emprendedor</h3>
           {entrepreneurDataConfig.map((item, index) => {
             return (
