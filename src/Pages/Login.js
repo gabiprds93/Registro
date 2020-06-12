@@ -7,12 +7,11 @@ import { loginDataConfig } from '../config/ConfigForm'
 import { fetchUserLogin } from '../redux/actions/userActions'
 
 const Login = ({ fetchUserLogin }) => {
-  const submitForm = values => {
-    fetchUserLogin(values).then(data => {
-      if(!data.errors){
-        console.log('success')
-      }
-    })
+  const submitForm = () => {
+    let formElement = document.getElementById("formLogin")
+    let formData = new FormData(formElement)
+      
+    fetchUserLogin(formData)
   }
 
   const initialValues = {
@@ -29,7 +28,7 @@ const Login = ({ fetchUserLogin }) => {
 
       <Formik initialValues={initialValues} onSubmit={submitForm}>
       {() => (
-        <Form className="form">
+        <Form className="form" id="formLogin">
           {loginDataConfig.map((item, index) => {
             return (
               <Field 

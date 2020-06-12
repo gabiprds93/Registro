@@ -41,7 +41,7 @@ export const userLoginRequest = () => ({
 
 export const userLoginSuccess = payload => ({
   type: USER_LOGIN_SUCCESS,
-  ...payload
+  response: {...payload}
 })
 
 export const userLoginFailure = payload => ({
@@ -54,8 +54,7 @@ export const fetchUserLogin = payload => {
     dispatch(userLoginRequest())
     return fetch('https://moliemprendedor.munimolina.gob.pe/adm_login_usuario1.php', {
       method: "POST",
-      headers: { 'Content-Type':'application/json' },
-      body: JSON.stringify(payload),
+      body: payload,
     })
     .then(response => response.json())
     .then(result => dispatch(userLoginSuccess(result)))
