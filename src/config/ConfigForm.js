@@ -12,3 +12,8 @@ export const accessDataConfig = [
   { label: 'Confirmar contraseña', type: 'password', name: 'confirmPassword' },
   { label: 'Agregar archivos', type: 'file', name: 'addFiles' },
 ]
+
+export const loginDataConfig = [
+  { label: 'Usuario', type: 'text', name: 'username' },
+  { label: 'Contraseña', type: 'password', name: 'clave' },
+]
