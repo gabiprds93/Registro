@@ -9,7 +9,7 @@ import { fetchFileUpload } from '../redux/actions/fileActions'
 import { validateRegistry } from '../config/validation'
 import { initialValuesRegistry } from '../config/initialValues'
 
-const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
+const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
   const submitForm = values => {
     if(values.wichButton === 'uploadButton'){
       let formData = new FormData();
@@ -28,7 +28,9 @@ const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
       formData.append('mov_usu', 'N')
       formData.delete('confirmPassword')
       formData.delete('addFiles')
-      fetchUserRegistry(formData)
+      fetchUserRegistry(formData).then(() => {
+        history.push('/login')
+      })  
     }
   }
   
