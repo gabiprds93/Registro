@@ -7,11 +7,17 @@ import { loginDataConfig } from '../config/ConfigForm'
 import { fetchUserLogin } from '../redux/actions/userActions'
 
 const Login = ({ fetchUserLogin }) => {
-  const submitForm = () => {
+  const submitForm = (values, actions) => {
     let formElement = document.getElementById("formLogin")
     let formData = new FormData(formElement)
       
-    fetchUserLogin(formData)
+    fetchUserLogin(formData).then((data)=>{
+      if(data.response && data.response['0']){
+        actions.setErrors({
+          general: data.response[0].COD_MENSAJE,
+        })
+      }
+    })
   }
 
   const initialValues = {
@@ -26,8 +32,13 @@ const Login = ({ fetchUserLogin }) => {
         <h3 className="subtitle">Ingresa con tu cuenta para hacer uso de la Plataforma Digital MoliEmprendedor.</h3>
       </div>
 
-      <Formik initialValues={initialValues} onSubmit={submitForm}>
-      {() => (
+      <Formik 
+        initialValues={initialValues} 
+        onSubmit={(values, actions) => {
+          submitForm(values, actions)
+        }}
+      >
+      {({ errors }) => (
         <Form className="form" id="formLogin">
           {loginDataConfig.map((item, index) => {
             return (
@@ -40,6 +51,10 @@ const Login = ({ fetchUserLogin }) => {
               />
             )
           })}
+
+          {errors.general && (
+            <p className="message">{errors.general}</p>
+          )}
 
           <div className="button-group">
             <button className="background-green" type="submit">Ingresar</button>
