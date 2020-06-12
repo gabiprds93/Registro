@@ -22,6 +22,8 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
       let formElement = document.getElementById("formElement")
       let formData = new FormData(formElement)
 
+      formData.append('idusuario', '')
+      formData.append('mov_usu', 'N')
       formData.delete('confirmPassword')
       formData.delete('addFiles')
       fetchUserRegistry(formData)
