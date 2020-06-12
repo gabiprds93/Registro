@@ -29,33 +29,18 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
   }
   
   const initialValues = {
-    // idusuario: '',
-    // dni: '99999999',
-    // nombre: '',
-    // descripcion: '',
-    // nombree: '',
-    // celular: '',
-    // correo: 'email@correo.com',
-    // url: '',
-    // username: '',
-    // clave: '',
-    // mov_usu: 'N'
+    idusuario: '',
+    dni: '',
+    nombre: '',
+    descripcion: '',
+    nombree: '',
+    celular: '',
+    correo: '',
+    url: '',
+    username: '',
+    clave: '',
+    mov_usu: 'N',
     wichButton: '',
-    idusuario:'',
-    username:'gaby123',
-    clave:'clave',
-    // ---------------------------
-    dni:'dni',
-    nombre:'nombre',
-    paterno:'paterno',
-    materno:'materno',
-    celular:'celular',
-    correo:'correo',
-    descripcion:'descripcion',
-    nombree:'nombree',
-    url:'url',
-    // -----------------------------  
-    mov_usu:'N'
   }
   
   return(
