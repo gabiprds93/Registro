@@ -13,7 +13,7 @@ function App() {
       <Provider store={store}>
       <HashRouter>
         <Switch>
-          <Route path="/registro" component={Registry} />
+          <Route exact path="/" component={Registry} />
           <Route path="/login" component={Login} />
         </Switch>
       </HashRouter>
