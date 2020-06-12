@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   isFetching: false,
-  profile: undefined,
+  registryResponse: undefined,
   errors: undefined,
 }
 
@@ -18,12 +18,13 @@ export default function reducer(
     case USER_REGISTRY_REQUEST:
       return Object.assign({}, state, {
         isFetching: true,
+        registryResponse: ''
       })
 
     case USER_REGISTRY_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        profile: action.data,
+        registryResponse: action.response,
       })
 
     case USER_REGISTRY_FAILURE:

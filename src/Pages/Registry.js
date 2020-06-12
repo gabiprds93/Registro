@@ -7,7 +7,7 @@ import { entrepreneurDataConfig, accessDataConfig } from '../config/ConfigForm'
 import { fetchUserRegistry } from '../redux/actions/userActions'
 import { fetchFileUpload } from '../redux/actions/fileActions'
 
-const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
+const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
   const submitForm = values => {
     if(values.wichButton === 'uploadButton'){
       let formData = new FormData();
@@ -100,6 +100,10 @@ const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
             />
             Autorizo y Acepto que la Municipalidad de La Molina me notifique los actos administrativos que pudiera emitir a consecuencia de la presente solicitud y/0 procedimiento administrativo al correo electrónico.
           </span>
+
+          {registryResponse && registryResponse.COD_MENSAJE && (
+            <p>{registryResponse.COD_MENSAJE}</p>
+          )}
           
           <div className="button-group">
             <button className="background-red" type="button" onClick={() => resetForm(initialValues)}>Cancelar</button>
@@ -113,7 +117,9 @@ const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
   )
 }
 
-const mapStateToProps = state => state 
+const mapStateToProps = state => ({
+  registryResponse: state.user.registryResponse
+})
 
 const mapDispatchToProps = { fetchUserRegistry, fetchFileUpload }
 

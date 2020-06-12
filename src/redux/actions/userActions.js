@@ -12,12 +12,12 @@ export const userRegistryRequest = () => ({
 
 export const userRegistrySuccess = payload => ({
   type: USER_REGISTRY_SUCCESS,
-  ...payload
+  response: {...payload}
 })
 
 export const userRegistryFailure = payload => ({
   type: USER_REGISTRY_FAILURE,
-  ...payload
+  errors: {...payload}
 })
 
 export const fetchUserRegistry = payload => {
@@ -25,8 +25,7 @@ export const fetchUserRegistry = payload => {
     dispatch(userRegistryRequest())
     return fetch('https://moliemprendedor.munimolina.gob.pe/adm_emprendedor1.php', {
       method: "POST",
-      headers: { 'Content-Type':'application/json' },
-      body: JSON.stringify(payload),
+      body: payload,
     })
     .then(response => response.json())
     .then(result => dispatch(userRegistrySuccess(result)))
