@@ -6,8 +6,9 @@ import FormikInput from '../Components/ForminkInput'
 import { entrepreneurDataConfig, accessDataConfig } from '../config/ConfigForm'
 import { fetchUserRegistry } from '../redux/actions/userActions'
 import { fetchFileUpload } from '../redux/actions/fileActions'
+import { validateRegistry } from '../config/validation'
 
-const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
+const Registry = ({fetchUserRegistry, fetchFileUpload}) => {
   const submitForm = values => {
     if(values.wichButton === 'uploadButton'){
       let formData = new FormData();
@@ -29,7 +30,7 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
       fetchUserRegistry(formData)
     }
   }
-  
+
   const initialValues = {
     idusuario: '',
     dni: '',
@@ -52,8 +53,8 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
         <h3 className="subtitle">Ingresa los datos solicitados para formar parte de nuestros distribuidores.</h3>
       </div>
 
-      <Formik initialValues={initialValues} onSubmit={submitForm}>
-      {({resetForm, handleSubmit, setFieldValue, isSubmitting}) => (
+      <Formik initialValues={initialValues} onSubmit={submitForm} validate={validateRegistry}>
+      {({resetForm, handleSubmit, setFieldValue}) => (
         <Form className="form" id="formElement">
           <h3 className="section-text">Datos del Emprendedor</h3>
           {entrepreneurDataConfig.map((item, index) => {
@@ -88,10 +89,6 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
             />
             Autorizo y Acepto que la Municipalidad de La Molina me notifique los actos administrativos que pudiera emitir a consecuencia de la presente solicitud y/0 procedimiento administrativo al correo electrónico.
           </span>
-
-          {isSubmitting && registryResponse && registryResponse.COD_MENSAJE && (
-            <p className="message">{registryResponse.COD_MENSAJE}</p>
-          )}
           
           <div className="button-group">
             <button className="background-red" type="button" onClick={() => resetForm(initialValues)}>Cancelar</button>
@@ -105,9 +102,7 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
   )
 }
 
-const mapStateToProps = state => ({
-  registryResponse: state.user.registryResponse
-})
+const mapStateToProps = state => state
 
 const mapDispatchToProps = { fetchUserRegistry, fetchFileUpload }
 
