@@ -51,7 +51,7 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
       </div>
 
       <Formik initialValues={initialValues} onSubmit={submitForm}>
-      {({resetForm, handleSubmit, setFieldValue}) => (
+      {({resetForm, handleSubmit, setFieldValue, isSubmitting}) => (
         <Form className="form" id="formElement">
           <h3 className="section-text">Datos del Emprendedor</h3>
           {entrepreneurDataConfig.map((item, index) => {
@@ -87,7 +87,7 @@ const Registry = ({registryResponse, fetchUserRegistry, fetchFileUpload}) => {
             Autorizo y Acepto que la Municipalidad de La Molina me notifique los actos administrativos que pudiera emitir a consecuencia de la presente solicitud y/0 procedimiento administrativo al correo electrónico.
           </span>
 
-          {registryResponse && registryResponse.COD_MENSAJE && (
+          {isSubmitting && registryResponse && registryResponse.COD_MENSAJE && (
             <p className="message">{registryResponse.COD_MENSAJE}</p>
           )}
           
