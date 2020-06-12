@@ -1,9 +1,14 @@
 import React from 'react'
 
-const Input = ({label, type, field}) => {
+const InputFile = ({label, type, field, form}) => {
   const handleChange = () => {
     let fileName = document.getElementById('input-file').files[0].name;
     document.getElementById('info').innerHTML = fileName;
+  }
+
+  const handleClick = () => {
+    form.setFieldValue('wichButton', 'uploadButton')
+    form.handleSubmit()
   }
   
   return(
@@ -14,10 +19,10 @@ const Input = ({label, type, field}) => {
           <span id='info'>Seleccionar archivo</span>
           <input id='input-file' type={type} {...field} onChange={handleChange} />
         </label>
-        <button className="background-green">Cargar</button>
+        <button className="background-green" type="button" onClick={handleClick} >Cargar</button>
       </div>
     </div>
   )
 }
 
-export default Input
+export default InputFile
