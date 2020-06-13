@@ -52,6 +52,7 @@ const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
                 type={item.type} 
                 name={item.name} 
                 label={item.label} 
+                {...item}
                 component={FormikInput} 
               />
             )

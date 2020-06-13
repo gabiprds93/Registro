@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Phone = ({label, form, field}) => {
+const InputNumber = ({label, form, field, regularExp}) => {
   const handleChangeInput = (evento) => {
     const { name, value } = evento.target;
-    let regex = new RegExp("^[0-9]{0,9}$");
+    let regex = new RegExp(regularExp);
 
     if (regex.test(value)) {
       form.setFieldValue(name, value)
@@ -18,4 +18,4 @@ const Phone = ({label, form, field}) => {
   )
 }
 
-export default Phone
+export default InputNumber

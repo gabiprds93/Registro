@@ -2,9 +2,9 @@ export const entrepreneurDataConfig = [
   { label: 'Nombre de la tienda o persona', type: 'text', name: 'nombre' },
   { label: 'Descripción de la tienda o persona', type: 'textarea', name: 'descripcion' },
   { label: 'Nombre de contacto', type: 'text', name: 'nombree' },
-  { label: 'DNI', type: 'text', name: 'dni' },
+  { label: 'DNI', type: 'number', name: 'dni', regularExp: '^[0-9]{0,8}$' },
   { label: 'Correo', type: 'email', name: 'correo' },
-  { label: 'Celular de contacto', type: 'phone', name: 'celular' },
+  { label: 'Celular de contacto', type: 'number', name: 'celular', regularExp: '^[0-9]{0,9}$' },
   { label: 'URL Facebook', type: 'text', name: 'url' },
 ]
 

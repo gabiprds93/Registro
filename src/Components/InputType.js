@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Input from './Input'
-import Phone from './Phone'
+import InputNumber from './InputNumber'
 import InputFile from './InputFile'
 
 const InputType = ({
@@ -10,8 +10,8 @@ const InputType = ({
   ...props
 }) => {
   switch (type) {
-    case 'phone':
-      return <Phone {...props} />
+    case 'number':
+      return <InputNumber {...props} />
     case 'file':
       return <InputFile type={type} {...props} />
     default:
