@@ -5,11 +5,6 @@ const InputFile = ({label, type, field, form}) => {
     let fileName = document.getElementById('input-file').files[0].name;
     document.getElementById('info').innerHTML = fileName;
   }
-
-  const handleClick = () => {
-    form.setFieldValue('wichButton', 'uploadButton')
-    form.handleSubmit()
-  }
   
   return(
     <div className="form-label">
