@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputFile = ({label, type, field, form}) => {
+const InputFile = ({label, type, field}) => {
   const handleChange = () => {
     let fileName = document.getElementById('input-file').files[0].name;
     document.getElementById('info').innerHTML = fileName;
