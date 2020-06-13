@@ -9,6 +9,7 @@ export const initialValuesRegistry = {
   url: '',
   username: '',
   clave: '',
+  confirmPassword: '',
   mov_usu: 'N',
   wichButton: '',
 }

@@ -27,6 +27,14 @@ export const validateRegistry = values => {
     errors.clave = 'Requerido';
   }
 
+  if (!values.confirmPassword) {
+    errors.confirmPassword = 'Requerido'
+  } 
+  
+  if (values.clave !== values.confirmPassword) {
+    errors.confirmPassword = 'Las contraseñas no coinciden'
+  }
+
   return errors
 }
 
