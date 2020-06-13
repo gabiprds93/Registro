@@ -10,28 +10,24 @@ import { validateRegistry } from '../config/validation'
 import { initialValuesRegistry } from '../config/initialValues'
 
 const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
-  const submitForm = values => {
-    if(values.wichButton === 'uploadButton'){
-      let formData = new FormData();
-      let fileField = document.querySelector("input[type='file']");
-  
-      formData.append('file', fileField.files[0]);
-      fetchFileUpload(formData).then(data => {
-          console.log('success')
-      })
-    }
-    else{
-      let formElement = document.getElementById("formElement")
-      let formData = new FormData(formElement)
+  const submitForm = () => {
+    let formElement = document.getElementById("formElement")
+    let formData = new FormData(formElement)
+    let formDataFile = new FormData();
+    let fileField = document.querySelector("input[type='file']");
 
-      formData.append('idusuario', '')
-      formData.append('mov_usu', 'N')
-      formData.delete('confirmPassword')
-      formData.delete('addFiles')
-      fetchUserRegistry(formData).then(() => {
-        history.push('/login')
-      })  
-    }
+    formDataFile.append('file', fileField.files[0]);
+    fetchFileUpload(formDataFile).then(data => {
+        console.log('success')
+    })
+
+    formData.append('idusuario', '')
+    formData.append('mov_usu', 'N')
+    formData.delete('confirmPassword')
+    formData.delete('addFiles')
+    fetchUserRegistry(formData).then(() => {
+      history.push('/login')
+    })
   }
   
   return(
@@ -42,7 +38,7 @@ const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
       </div>
 
       <Formik initialValues={initialValuesRegistry} onSubmit={submitForm} validate={validateRegistry}>
-      {({resetForm, handleSubmit, setFieldValue, isValid, dirty}) => (
+      {({resetForm, isValid, dirty}) => (
         <Form className="form" id="formElement">
           <h3 className="section-text">Datos del Emprendedor</h3>
           {entrepreneurDataConfig.map((item, index) => {
@@ -87,10 +83,7 @@ const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
             <button 
               className="btn background-green" 
               disabled={!dirty || !isValid}
-              type="button" 
-              onClick={() => {setFieldValue('wichButton', 'sendButton')
-                handleSubmit()
-              }}
+              type="submit"
             >
               Enviar
             </button>
