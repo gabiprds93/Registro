@@ -19,8 +19,8 @@ export const fileUploadFailure = payload => ({
 export const fetchFileUpload = payload => {
   return dispatch =>{
     dispatch(fileUploadRequest())
-    return fetch('https://moliemprendedor.munimolina.gob.pe/subirarchivos.php', {
-      method: 'PUT',
+    return fetch('https://moliemprendedor.munimolina.gob.pe/Controlador/subirarchivos1.php', {
+      method: 'POST',
       body: payload
     })
     .then(response => response.json())
