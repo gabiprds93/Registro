@@ -15,11 +15,13 @@ const InputFile = ({label, type, field, form}) => {
     <div className="form-label">
       {label}
       <div className="file-upload">
-        <label className="form-input">
-          <span id='info'>Seleccionar archivo</span>
+        <label>
+          <div className="form-input">
+            <span id='info'>Seleccionar archivo</span>
+          </div>
           <input id='input-file' type={type} {...field} onChange={handleChange} />
+          <div className="btn background-green">Cargar</div>
         </label>
-        <button className="background-green" type="button" onClick={handleClick} >Cargar</button>
       </div>
     </div>
   )

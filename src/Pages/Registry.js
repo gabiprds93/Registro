@@ -81,11 +81,11 @@ const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
           
           <div className="button-group">
             <button 
-              className="background-red" 
+              className="btn background-red" 
               type="button" 
               onClick={() => resetForm(initialValuesRegistry)}>Cancelar</button>
             <button 
-              className="background-green" 
+              className="btn background-green" 
               disabled={!dirty || !isValid}
               type="button" 
               onClick={() => {setFieldValue('wichButton', 'sendButton')

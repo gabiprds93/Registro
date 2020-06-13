@@ -56,7 +56,7 @@ const Login = ({ fetchUserLogin }) => {
 
           <div className="button-group">
             <button 
-              className="background-green" 
+              className="btn background-green" 
               disabled={!dirty || !isValid || isSubmitting} 
               type="submit"
             >
