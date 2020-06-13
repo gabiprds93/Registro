@@ -17,9 +17,7 @@ const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
     let fileField = document.querySelector("input[type='file']");
 
     formDataFile.append('file', fileField.files[0]);
-    fetchFileUpload(formDataFile).then(data => {
-        console.log('success')
-    })
+    fetchFileUpload(formDataFile)
 
     formData.append('idusuario', '')
     formData.append('mov_usu', 'N')
