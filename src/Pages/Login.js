@@ -14,7 +14,7 @@ const Login = ({ fetchUserLogin }) => {
     let formData = new FormData(formElement)
       
     fetchUserLogin(formData).then((data)=>{
-      if(data.response && data.response['0']){
+      if(data.response && data.response['0'] && data.response[0].COD_MENSAJE){
         actions.setErrors({
           general: data.response[0].COD_MENSAJE,
         })
@@ -36,7 +36,7 @@ const Login = ({ fetchUserLogin }) => {
         }}
         validate={validateLogin}
       >
-      {({ errors }) => (
+      {({ errors, isValid, isSubmitting, dirty }) => (
         <Form className="form" id="formLogin">
           {loginDataConfig.map((item, index) => {
             return (
@@ -55,7 +55,13 @@ const Login = ({ fetchUserLogin }) => {
           )}
 
           <div className="button-group">
-            <button className="background-green" type="submit">Ingresar</button>
+            <button 
+              className="background-green" 
+              disabled={!dirty || !isValid || isSubmitting} 
+              type="submit"
+            >
+              Ingresar
+            </button>
           </div>
         </Form>
       )}

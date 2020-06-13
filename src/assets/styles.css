@@ -72,10 +72,17 @@ button{
   border: none;
   border-radius: 5px;
   color: #FFFFFF;
+  cursor: pointer;
   font-size: 18px;
   height: 45px;
   margin: 0 25px;
   width: 185px;
+}
+
+button:disabled {
+  color: #1A984D;
+  cursor: not-allowed;
+  background: #BDBDBD;
 }
 
 .background-red{

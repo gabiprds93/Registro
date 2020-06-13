@@ -42,7 +42,7 @@ const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
       </div>
 
       <Formik initialValues={initialValuesRegistry} onSubmit={submitForm} validate={validateRegistry}>
-      {({resetForm, handleSubmit, setFieldValue}) => (
+      {({resetForm, handleSubmit, setFieldValue, isValid, dirty}) => (
         <Form className="form" id="formElement">
           <h3 className="section-text">Datos del Emprendedor</h3>
           {entrepreneurDataConfig.map((item, index) => {
@@ -80,9 +80,20 @@ const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
           </span>
           
           <div className="button-group">
-            <button className="background-red" type="button" onClick={() => resetForm(initialValuesRegistry)}>Cancelar</button>
-            <button className="background-green" type="button" onClick={() => {setFieldValue('wichButton', 'sendButton')
-              handleSubmit()}}>Enviar</button>
+            <button 
+              className="background-red" 
+              type="button" 
+              onClick={() => resetForm(initialValuesRegistry)}>Cancelar</button>
+            <button 
+              className="background-green" 
+              disabled={!dirty || !isValid}
+              type="button" 
+              onClick={() => {setFieldValue('wichButton', 'sendButton')
+                handleSubmit()
+              }}
+            >
+              Enviar
+            </button>
           </div>
         </Form>
       )}
