@@ -74,7 +74,7 @@ export const getUsersRequest = () => ({
 
 export const getUsersSuccess = payload => ({
   type: GET_USERS_SUCCESS,
-  response: {...payload}
+  response: payload
 })
 
 export const getUsersFailure = payload => ({
