@@ -10,6 +10,7 @@ export const initialValuesRegistry = {
   username: '',
   clave: '',
   confirmPassword: '',
+  termns: false,
   mov_usu: 'N',
   wichButton: '',
 }

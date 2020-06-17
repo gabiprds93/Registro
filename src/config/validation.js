@@ -35,6 +35,10 @@ export const validateRegistry = values => {
     errors.confirmPassword = 'Las contraseñas no coinciden'
   }
 
+  if(!values.termns) {
+    errors.termns = 'Requerido'
+  }
+
   return errors
 }
 
