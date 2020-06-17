@@ -1,11 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Login = ({ loginResponse, history }) => {
+import { fetchGetUsers } from '../redux/actions/userActions'
+
+const Login = ({ loginResponse, history, fetchGetUsers }) => {
   
   React.useEffect(() => {
     if(!loginResponse){
       history.push('/login')
+    }
+    else{
+      fetchGetUsers()
     }
   }, [])
   
@@ -22,6 +27,6 @@ const mapStateToProps = state => ({
   loginResponse: state.user.loginResponse,
 })
 
-const mapDispatchToProps = { }
+const mapDispatchToProps = { fetchGetUsers }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

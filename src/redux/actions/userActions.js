@@ -6,6 +6,10 @@ export const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST'
 export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE'
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 
+export const GET_USERS_REQUEST = 'GET_USERS_REQUEST'
+export const GET_USERS_FAILURE = 'GET_USERS_FAILURE'
+export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS'
+
 export const userRegistryRequest = () => ({
   type: USER_REGISTRY_REQUEST
 })
@@ -60,6 +64,35 @@ export const fetchUserLogin = payload => {
     .then(result => dispatch(userLoginSuccess(result)))
     .catch(error => {
       dispatch(userLoginFailure(error.message))
+    })
+  }
+}
+
+export const getUsersRequest = () => ({
+  type: GET_USERS_REQUEST
+})
+
+export const getUsersSuccess = payload => ({
+  type: GET_USERS_SUCCESS,
+  response: {...payload}
+})
+
+export const getUsersFailure = payload => ({
+  type: GET_USERS_FAILURE,
+  ...payload
+})
+
+export const fetchGetUsers = payload => {
+  return dispatch =>{
+    dispatch(getUsersRequest())
+    return fetch('https://moliemprendedor.munimolina.gob.pe/consulta_usuarios_registrados1.php', {
+      method: "GET",
+      body: payload,
+    })
+    .then(response => response.json())
+    .then(result => dispatch(getUsersSuccess(result)))
+    .catch(error => {
+      dispatch(getUsersFailure(error.message))
     })
   }
 }
