@@ -106,7 +106,7 @@ input[type="file"]{
 }
 
 .file-upload .form-input{
-  align-items: end;
+  align-items: flex-start;
   background-color: #FFFFFF;
   border: 1px solid #BDBDBD;
   display: flex;

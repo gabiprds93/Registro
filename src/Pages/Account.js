@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const Login = ({ loginResponse, history }) => {
-  console.log(loginResponse)
+  
   React.useEffect(() => {
     if(!loginResponse){
       history.push('/login')
