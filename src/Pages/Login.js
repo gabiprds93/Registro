@@ -57,7 +57,7 @@ const Login = ({ fetchUserLogin }) => {
           <div className="button-group">
             <button 
               className="btn background-green" 
-              disabled={!dirty || !isValid || isSubmitting} 
+              disabled={!dirty || !isValid} 
               type="submit"
             >
               Ingresar
