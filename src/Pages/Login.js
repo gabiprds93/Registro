@@ -8,7 +8,7 @@ import { fetchUserLogin } from '../redux/actions/userActions'
 import { validateLogin } from '../config/validation'
 import { initialValuesLogin } from '../config/initialValues'
 
-const Login = ({ fetchUserLogin }) => {
+const Login = ({ fetchUserLogin, history }) => {
   const submitForm = (values, actions) => {
     let formElement = document.getElementById("formLogin")
     let formData = new FormData(formElement)
@@ -18,6 +18,9 @@ const Login = ({ fetchUserLogin }) => {
         actions.setErrors({
           general: data.response[0].COD_MENSAJE,
         })
+      }
+      else{
+        history.push('/account')
       }
     })
   }
