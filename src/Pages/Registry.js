@@ -23,6 +23,9 @@ const Registry = ({fetchUserRegistry, fetchFileUpload, history}) => {
     formData.append('mov_usu', 'N')
     formData.delete('confirmPassword')
     formData.delete('addFiles')
+    formData.delete('day')
+    formData.delete('month')
+    formData.delete('year')
     fetchUserRegistry(formData).then(() => {
       history.push('/login')
     })

@@ -4,6 +4,7 @@ export const initialValuesRegistry = {
   nombre: '',
   descripcion: '',
   nombree: '',
+  fechanac: '',
   celular: '',
   correo: '',
   url: '',
