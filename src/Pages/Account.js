@@ -5,7 +5,7 @@ import { fetchGetUsers } from '../redux/actions/userActions'
 import { columns } from '../config/tableConfig'
 import DataTable from '../Components/DataTable'
 
-const Login = ({ loginResponse, history, fetchGetUsers, listUsers }) => {
+const Account = ({ loginResponse, history, fetchGetUsers, listUsers }) => {
   
   React.useEffect(() => {
     if(!loginResponse){
@@ -39,4 +39,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { fetchGetUsers }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Account)

@@ -39,7 +39,7 @@ const Login = ({ fetchUserLogin, history }) => {
         }}
         validate={validateLogin}
       >
-      {({ errors, isValid, isSubmitting, dirty }) => (
+      {({ errors, isValid, dirty }) => (
         <Form className="form" id="formLogin">
           {loginDataConfig.map((item, index) => {
             return (
